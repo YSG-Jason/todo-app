@@ -9,9 +9,32 @@ function App() {
         
         
         Todo React / Spring Application
+
+        <FirstComponent></FirstComponent>
       </header>
     </div>
   );
+}
+
+class FirstComponent extends React.Component {
+  render() {
+    return(
+    <div className="firstComponent">
+      First Component
+      <SecondComponent></SecondComponent>
+    </div>
+    )
+  }
+}
+
+class SecondComponent extends React.Component {
+  render() {
+    return(
+      <div className="secondComponent">
+        I am the second component!
+      </div>
+    )
+  }
 }
 
 export default App;
