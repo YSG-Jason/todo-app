@@ -11,6 +11,7 @@ function App() {
         Todo React / Spring Application
 
         <FirstComponent></FirstComponent>
+        <ThirdComponent></ThirdComponent>
       </header>
     </div>
   );
@@ -36,5 +37,15 @@ class SecondComponent extends React.Component {
     )
   }
 }
+
+function ThirdComponent() {
+  return(
+    <div className="thirdComponent">
+      I am the third component!
+    </div>
+  )
+}
+
+
 
 export default App;
