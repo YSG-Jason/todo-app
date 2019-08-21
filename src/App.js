@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FirstComponent from './components/examples/FirstComponent'
+import SecondComponent from './components/examples/SecondComponent'
+import ThirdComponent from './components/examples/ThirdComponent'
 
 function App() {
   return (
@@ -21,23 +23,7 @@ function App() {
 
 
 
-class SecondComponent extends React.Component {
-  render() {
-    return(
-      <div className="secondComponent">
-        I am the second component!
-      </div>
-    )
-  }
-}
 
-function ThirdComponent() {
-  return(
-    <div className="thirdComponent">
-      I am the third component!
-    </div>
-  )
-}
 
 
 
