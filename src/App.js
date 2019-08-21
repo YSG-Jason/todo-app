@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FirstComponent from './components/examples/FirstComponent'
 
 function App() {
   return (
@@ -11,22 +12,14 @@ function App() {
         Todo React / Spring Application
 
         <FirstComponent></FirstComponent>
+        <SecondComponent></SecondComponent>
         <ThirdComponent></ThirdComponent>
       </header>
     </div>
   );
 }
 
-class FirstComponent extends React.Component {
-  render() {
-    return(
-    <div className="firstComponent">
-      First Component
-      <SecondComponent></SecondComponent>
-    </div>
-    )
-  }
-}
+
 
 class SecondComponent extends React.Component {
   render() {
