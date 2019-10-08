@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './bootstrap.css';
 // import FirstComponent from './components/examples/FirstComponent'
 // import SecondComponent from './components/examples/SecondComponent'
 // import ThirdComponent from './components/examples/ThirdComponent'
