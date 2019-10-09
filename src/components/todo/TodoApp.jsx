@@ -14,6 +14,7 @@ class TodoApp extends Component{
                             <Route path="/login" component={LoginComponent} />
                             <Route path="/welcome/:name" component={WelcomeComponent} />
                             <Route path="/todos" component={ListtodosComponent} />
+                            <Route path="/logout" component={LogoutComponent} />
                             <Route component={ErrorComponent} />
                         </Switch>
                         <FooterComponent></FooterComponent>
@@ -54,7 +55,9 @@ class FooterComponent extends Component {
     render() {
         return(
             <div>
-               <hr/> Footer <hr/>
+               <footer className="footer">
+                   <span className="text-muted">All Rights Reserved 2019 @Helix Design & Creation Inc.</span>
+               </footer>
             </div>
         )
         
@@ -79,43 +82,66 @@ class ListtodosComponent extends Component {
         return (
         <div>
             <h1>List Todos</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>Description</th>
-                        <th>Is Completed?</th>
-                        <th>Target Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        this.state.todos.map(
-                            todo =>
-                                <tr>
-                                    <td>{todo.id}</td>
-                                    <td>{todo.descriptions}</td>
-                                    <td>{todo.done.toString()}</td>
-                                    <td>{todo.targetDate.toString()}</td>
-                                </tr>
-                        )
-                        
-                    }
-                </tbody>
-            </table>
+            <div className="container">
+                <table className="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Is Completed?</th>
+                            <th scope="col">Target Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.todos.map(
+                                todo =>
+                                    <tr>
+                                        <td>{todo.id}</td>
+                                        <td>{todo.descriptions}</td>
+                                        <td>{todo.done.toString()}</td>
+                                        <td>{todo.targetDate.toString()}</td>
+                                    </tr>
+                            )
+                            
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
+        )
+    }
+}
+
+class LogoutComponent extends Component{
+    render() {
+        return (
+            <div>
+                <h1>You are Logged Out</h1>
+                <div className="container">
+                    Thank you for using Todo
+                </div>
+            </div>
         )
     }
 }
 
 class WelcomeComponent extends Component {
     render() {
-        return <div>Welcome {this.props.match.params.name}
-        <br></br>
-        Manage your List <Link to='/todos'>Here</Link>
-        </div>
+        return (
+            <>
+                <h1>Welcome!</h1><br/>
+                <div>Welcome back {this.props.match.params.name}</div><br/>
+                <div>You can manage your list <Link to='/todos'> Here</Link></div>
+            </>
+        )
+        
+        // <div>Welcome {this.props.match.params.name}
+        // <br></br>
+        // Manage your List <Link to='/todos'>Here</Link>
+        // </div>
 
     }
 }
@@ -185,13 +211,16 @@ class LoginComponent extends Component {
     render() {
         return(
             <div>
-                User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/><br></br>
-                Password: <input type="password" name="password" value= {this.state.password} onChange={this.handleChange}/><br></br>
-                <button onClick={this.loginClicked}>Login</button>
-                {/* <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}></ShowInvalidCredentials>
-                <ShowSuccessMessage showSuccessMessage={this.state.showSuccessMessage} /> */}
-                {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
-                {this.state.showSuccessMessage && <div>Login Successful</div>}
+                <h1>HelixDC Todo Login</h1>
+                <div className="container">
+                    User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/><br/>
+                    Password: <input type="password" name="password" value= {this.state.password} onChange={this.handleChange}/><br></br>
+                    <button type="button" className="btn btn-primary" onClick={this.loginClicked}>Login</button>
+                    {/* <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}></ShowInvalidCredentials>
+                    <ShowSuccessMessage showSuccessMessage={this.state.showSuccessMessage} /> */}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
+                    {this.state.showSuccessMessage && <div>Login Successful</div>}
+                </div>
             </div>  
         )
     }
